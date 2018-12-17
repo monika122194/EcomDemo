@@ -1,0 +1,207 @@
+<div class="alert alert-danger" *ngIf="statusCode != 200 && statusCode != null">
+  <a href="#" class="close" data-dismiss="alert">&times;</a>
+  <strong>Error!</strong> {{ message }}
+</div>
+<div class="alert alert-success" *ngIf="statusCode == 200">
+  <a href="#" class="close" data-dismiss="alert">&times;</a>
+  <strong>Success!</strong> {{ message}}
+</div>
+<!-- Facts -->
+<div id="facts" style="padding-top: 30px; padding-bottom: 30px;">
+
+  <!-- Section Content -->
+  <div class="section-content">
+
+    <!-- Row -->
+    <div class="row">
+
+
+      <!-- Column -->
+      <div class="col-md-6">
+
+        <!-- Support Image -->
+        <div class="support-img">
+
+          <img src="{{ productDetail?.ImageName }}" alt=""/>
+
+        </div>
+        <!-- End Support Image -->
+
+      </div>
+      <!-- End Column -->
+
+
+      <!-- Column -->
+      <div class="col-md-6">
+
+        <!-- About Description -->
+        <div class="about-description">
+
+          <!-- Section Title -->
+          <div class="section-title">
+
+            <!-- Title -->
+            <h2 class="bold uppercase dark f-expanded t-left mobile-t-center">{{ productDetail?.ItemName }}</h2>
+            <br>
+            <h3 class="bold t-left mobile-t-center" *ngIf="productPriceFinal > 0">
+              {{ productDetail.discount }}%&nbsp;Off&nbsp;&nbsp;<del style="color: darkgray">₹&nbsp;{{ productPrice | roundTwoDigits }}</del>&nbsp;&nbsp; <i class="fa fa-inr"></i>&nbsp;{{ productPriceFinal | roundTwoDigits }}
+            </h3>
+
+            <h3 class="bold t-left mobile-t-center" *ngIf="productPriceFinal == 0"> ₹{{ productPrice | roundTwoDigits }}</h3>
+
+            <!-- Sub Heading -->
+            <!--<p class="sofia gray2 italic f-normal t-left mobile-t-center">Elegent Design.</p>-->
+
+          </div>
+          <!-- Section Title -->
+
+
+          <!-- History List -->
+          <ul class="facts-history t-left">
+
+            <!-- List Item -->
+            <li>
+
+              <p class="f-small normal t-left mobile-t-center gray2">{{ productDetail?.ItemDescription }}</p>
+
+            </li>
+            <!-- End List Item -->
+
+            <!-- List Item -->
+            <li	class="separator-small"></li>
+            <!-- End List Item -->
+
+            <!-- List Item -->
+            <li class="f-small" *ngIf="productDetail?.height > 0">
+
+              <i class="fa fa-check"></i> Height: - <span class="bold uppercase">{{ productDetail.height | roundTwoDigits }}</span>
+
+            </li>
+            <!-- End List Item -->
+
+            <!-- List Item -->
+            <li class="f-small" *ngIf="productDetail?.breadth > 0">
+
+              <i class="fa fa-check"></i> Breadth: - <span class="bold uppercase">{{ productDetail.breadth | roundTwoDigits }}</span>
+
+            </li>
+            <!-- End List Item -->
+
+            <!-- List Item -->
+            <li class="f-small" *ngIf="productDetail?.length > 0">
+
+              <i class="fa fa-check"></i> Length: - <span class="bold uppercase">{{ productDetail.length | roundTwoDigits }}</span>
+
+            </li>
+            <!-- End List Item -->
+
+            <!-- List Item -->
+            <li class="f-small" *ngIf="productDetail?.weight > 0">
+
+              <i class="fa fa-check"></i> Weight: - <span class="bold uppercase">{{ productDetail.weight | roundTwoDigits }}</span>
+
+            </li>
+            <!-- End List Item -->
+
+            <li>
+              <button type="button" class="button contact-btn dark" (click)="onAddToCart()">Add To Cart</button>
+            </li>
+          </ul>
+          <!-- End History List -->
+
+        </div>
+        <!-- End About Description -->
+
+      </div>
+      <!-- End Column -->
+
+    </div>
+    <!-- End Row -->
+
+  </div>
+  <!-- End Section Content -->
+
+</div>
+<!-- End Facts -->
+
+
+<!-- Related Items -->
+<div id="team" style="padding-top: 40px">
+
+  <!-- Row -->
+  <div class="row">
+
+    <!-- Section Title -->
+    <div class="section-title-large" style="padding-bottom: 40px">
+
+      <!-- Title -->
+      <h2 class="bold uppercase dark f-expanded t-center">Related Item.</h2>
+
+    </div>
+    <!-- Section Title -->
+
+  </div>
+  <!-- End Row -->
+
+
+  <!-- Section Content -->
+  <div class="section-content">
+
+    <!-- Row -->
+    <div class="row" *ngIf="relatedItem?.length > 0">
+
+      <!-- Member -->
+      <div class="col-md-3 member" *ngFor="let product of relatedItem | paginate: {itemsPerPage: 4, currentPage: p}">
+
+        <!-- Member Image -->
+        <img src="{{ product.ImageName }}" alt="" style="height: 260px;" />
+        <!--<img src="/src/img/person/03.jpg" alt="" />-->
+
+
+        <!-- Hover Effect -->
+        <div class="hover" [routerLink]="['/product_detail/'+product.ItemCode]">
+
+          <!-- Hover Content -->
+          <div class="hover-content">
+
+
+            <!-- Member Name -->
+            <h2 class="t-center mobile-t-center f-small uppercase bold dark">
+              Jane Kelly
+            </h2>
+
+            <!-- Title -->
+            <p class="f-small normal gray2">Developer</p>
+
+            <!-- Social Links -->
+            <ul class="no-margin-bottom">
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li class="no-margin"><a href="#"><i class="fa fa-twitter"></i></a></li>
+            </ul>
+
+
+          </div>
+          <!-- End Hover Content -->
+
+        </div>
+        <!-- End Hover Effect -->
+
+        <div class="product_detail">
+          <p>{{ product.ItemName | shorten:20 }}</p>
+          <p><i class="fa fa-inr"></i> {{ product.Rate | roundTwoDigits }}</p>
+        </div>
+
+      </div>
+      <!-- End Member -->
+
+    </div>
+    <!-- End Row -->
+
+  </div>
+  <!-- End Section Content -->
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
+<!-- End Related Items -->

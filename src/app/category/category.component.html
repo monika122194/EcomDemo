@@ -1,0 +1,11 @@
+<div class="col-sm-2" style="float: left;position: fixed">
+  <ul>
+    <li *ngFor="let cat of parent_cats"
+        style="text-align: left;padding-left: 15px; padding-bottom: 5px; cursor: pointer!important;"
+        routerLinkActive="active"
+    >
+      <a [routerLink]="['/products/'+cat.unique_code]">{{ cat.ItemCategoryName }}</a>
+
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,135 @@
+<!-- Team -->
+<div id="team">
+
+    <!-- Row -->
+    <div class="row">
+
+        <!-- Section Title -->
+        <div class="section-title-large">
+
+            <!-- Title -->
+            <h2 class="bold uppercase dark f-expanded t-center">Product list.</h2>
+
+            <!-- Sub Heading -->
+            <p class="sofia gray2 italic f-normal t-center">Category</p>
+
+        </div>
+        <!-- Section Title -->
+
+    </div>
+    <!-- End Row -->
+
+
+    <!-- Section Content -->
+    <div class="section-content">
+
+        <!-- Row -->
+        <div class="row" *ngIf="products?.length > 0">
+
+            <!-- Member -->
+            <div class="col-md-3 col-sm-2 col-xs-1 member" *ngFor="let product of products | paginate: {itemsPerPage: 16, currentPage: p}">
+
+                <!-- Member Image -->
+                <img src="{{ product.ImageName }}" alt="" style="height: 260px;" />
+                <!--<img src="/src/img/person/03.jpg" alt="" />-->
+
+
+                <!-- Hover Effect -->
+                <div class="hover" [routerLink]="['/product_detail/'+product.ItemCode]">
+
+                    <!-- Hover Content -->
+                    <div class="hover-content">
+
+
+                        <!-- Member Name -->
+                        <h2 class="t-center mobile-t-center f-small uppercase bold dark">
+                            Jane Kelly
+                        </h2>
+
+                        <!-- Title -->
+                        <p class="f-small normal gray2">Developer</p>
+
+                        <!-- Social Links -->
+                        <ul class="no-margin-bottom">
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li class="no-margin"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+
+
+                    </div>
+                    <!-- End Hover Content -->
+
+                </div>
+                <!-- End Hover Effect -->
+
+                <div class="product_detail">
+                    <p>{{ product.ItemName | shorten:20 }}</p>
+                    <p><i class="fa fa-inr"></i> {{ product.Rate | roundTwoDigits }}</p>
+                </div>
+
+            </div>
+            <!-- End Member -->
+
+        </div>
+        <!-- End Row -->
+
+        <!-- Row -->
+        <div class="row" *ngIf="category?.length > 0">
+
+            <!-- Member -->
+            <div class="col-md-3 col-sm-2 col-xs-1 member" *ngFor="let cat of category | paginate: {itemsPerPage: 16, currentPage: p}">
+
+                <!-- Member Image -->
+                <img src="{{ cat.ImageName }}" alt="" style="height: 260px;" />
+                <!--<img src="/src/img/person/03.jpg" alt="" />-->
+
+
+                <!-- Hover Effect -->
+                <div class="hover" [routerLink]="['/products/'+cat.unique_code]" style="cursor: pointer">
+
+                    <!-- Hover Content -->
+                    <div class="hover-content">
+
+
+                        <!-- Member Name -->
+                        <h2 class="t-center mobile-t-center f-small uppercase bold dark">
+                            Jane Kelly
+                        </h2>
+
+                        <!-- Title -->
+                        <p class="f-small normal gray2">Developer</p>
+
+                        <!-- Social Links -->
+                        <ul class="no-margin-bottom">
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li class="no-margin"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+
+
+                    </div>
+                    <!-- End Hover Content -->
+
+                </div>
+                <!-- End Hover Effect -->
+
+                <div class="product_detail">
+                    <p>{{ cat.ItemCategoryName | shorten:20 }}</p>
+                    <p>{{ cat.unique_code | shorten:20 }}</p>
+                </div>
+
+            </div>
+            <!-- End Member -->
+
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <!-- End Row -->
+
+    </div>
+    <!-- End Section Content -->
+
+
+
+</div>
+<!-- End Team -->

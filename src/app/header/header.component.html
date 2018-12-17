@@ -1,0 +1,162 @@
+
+<!-- Header -->
+<div *ngIf="router.url == '/'" id="header" class="image-bg-1 pattern-white no-margin" data-uk-parallax="{bg: '-300'}" style="">
+
+  <!-- Section Content -->
+  <div class="section-content">
+
+    <!-- Section Content -->
+    <div class="home-content">
+
+      <!-- Row -->
+      <div class="row">
+
+        <!-- Column -->
+        <div class="col-md-6">
+
+          <div class="home-img">
+
+            <img src="/src/img/showcase/screen-tilted-double-03.png" alt="" />
+
+          </div>
+
+        </div>
+        <!-- End Column -->
+
+
+        <!-- Column -->
+        <div class="col-md-6">
+
+          <!-- Home Text -->
+          <div class="home-text">
+
+            <!-- Heading -->
+            <h4 class="dark uppercase bold t-left f-large mobile-t-center">To Grandma With Love</h4>
+
+            <!-- Sub Heading -->
+            <h2 class="sofia gray2 italic f-normal t-left mobile-t-center">The app that bridges the gap between those on social media and those who are not.</h2>
+
+
+          </div>
+          <!-- End Home Text -->
+
+          <div class="separator-small"></div>
+
+          <!-- Home Download -->
+          <div class="home-download">
+
+            <!-- Downlad List -->
+            <ul class="t-left mobile-t-center">
+
+              <!-- Android -->
+              <li class="">
+
+                <a href="#" class="button t-center">Google Play</a>
+
+              </li>
+              <!-- End Android -->
+
+              <!-- Apple -->
+              <li>
+
+                <a href="#" class="button t-center">Apple Store</a>
+
+              </li>
+              <!-- End Apple -->
+
+              <!-- Windows -->
+              <li class="mobile-no-margin-right">
+
+                <a href="#" class="button t-center">Windows Store</a>
+
+              </li>
+              <!-- End Windows -->
+
+            </ul>
+            <!-- End Downlad List -->
+
+          </div>
+          <!-- End Home Download -->
+
+
+        </div>
+        <!-- End Column -->
+
+      </div>
+      <!-- End Row -->
+
+    </div>
+    <!-- End Section Content -->
+
+  </div>
+  <!-- End Section Content -->
+
+</div>
+<!-- End Header -->
+
+<!-- Navigation Starts -->
+<nav class="navigation navbar navbar-default" data-uk-sticky>
+
+
+  <!-- Navigation Heading -->
+  <div class="navbar-header">
+
+    <!-- Mobile Navigation Button -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <!-- End Mobile Navigation Button -->
+
+    <!-- Navigation Logo -->
+    <a routerLink="/" class="navbar-brand" data-uk-smooth-scroll="{offset: 120}"><img src="/src/img/Hai_logo_dark.png" alt="" /></a>
+    <!-- End Navigation Logo -->
+
+  </div>
+  <!-- End Navigation Heading -->
+
+
+  <!-- Navigation Links -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+    <!-- Navigation List -->
+    <ul class="nav navbar-nav uppercase normal">
+
+      <li routerLinkActive="active"><a routerLink="/home" data-uk-smooth-scroll>Home</a></li>
+
+      <li routerLinkActive="active"><a routerLink="/about" data-uk-smooth-scroll="{offset: 70}">About</a></li>
+
+      <li routerLinkActive="active"><a routerLink="/download" data-uk-smooth-scroll="{offset: 0}">Download</a></li>
+
+      <!--<li routerLinkActive="active"><a routerLink="/products" data-uk-smooth-scroll="{offset: 50}">Products</a></li>-->
+
+      <li routerLinkActive="active"><a [routerLink]="isAuthUser ? '/logout' : '/login'" data-uk-smooth-scroll="{offset: 40}">{{ isAuthUser ? 'Logout' : 'Login'}}</a></li>
+
+      <li routerLinkActive="active"><a routerLink="/cart" data-uk-smooth-scroll="{offset: 200}">cart {{ (authUser != null) ? '('+authUser.cart_count+')' : ''}}</a></li>
+
+      <!--<li><a href="#team" data-uk-smooth-scroll="{offset: 50}">Team</a></li>-->
+
+      <!--<li><a href="#faq" data-uk-smooth-scroll="{offset: 40}">FAQ</a></li>-->
+
+      <!--<li><a href="#blog" data-uk-smooth-scroll="{offset: 40}">Blog</a></li>-->
+
+      <!--<li><a href="#contact" data-uk-smooth-scroll="{offset: 40}">Contact</a></li>-->
+
+    </ul>
+    <!-- End Navigation List -->
+
+  </div>
+  <!-- End Navigation Links -->
+
+
+</nav>
+
+
+
+
+
+
+<!-- Navigation Ends -->

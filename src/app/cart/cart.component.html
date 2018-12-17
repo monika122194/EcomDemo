@@ -1,0 +1,51 @@
+<div *ngIf="!loginService.getIsAuthenticated()">
+  Seems you are not Logged In!!
+</div>
+<div *ngIf="loginService.getIsAuthenticated()" class="row">
+    <div class="col-sm-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+
+                <!--<th>Original Price</th>-->
+                <!--<th>Special Price</th>-->
+                <th>Inc/Dec Qty</th>
+                <th>Tax</th>
+                <th>Total price</th>
+            </tr>
+            <tr *ngFor="let cartList of cartListData.data.cart_list; let i = index">
+                <td><img src="{{ cartList.ImageName }}" style="height: 100px;"></td>
+                <td>{{ cartList.qty }}</td>
+                <td><span *ngIf="cartList.discount > 0"><del style="color: grey">{{ cartList.base_price }}</del>&nbsp;&nbsp;{{ cartList.discount+' % off'}}&nbsp;&nbsp;</span> {{ cartList.price }}</td>
+
+                <!--<td>{{ cartList.original_price}}</td>-->
+                <!--<td>{{ cartList.special_price}}</td>-->
+                <td>
+                  <i class="fa fa-plus-circle" (click)="onIncQty(i)"></i>&nbsp;
+                  <i class="fa fa-trash" (click)="onDeleteCartItem(i)"></i>&nbsp;
+                  <i class="fa fa-minus-circle" (click)="onDecQty(i)"></i>&nbsp;
+                </td>
+                <td>{{ '('+cartList.TaxRateA+') '+cartList.tax_price}}</td>
+                <td>{{ cartList.item_price_total }}</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td colspan="2">Shipping Charge Total</td>
+                <td>{{ cartListData.data.shipping_charge_total }}</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td colspan="2">Total Tax</td>
+                <td>{{ cartListData.data.total_tax }}</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td colspan="2">Total</td>
+                <td>{{ cartListData.data.total }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
