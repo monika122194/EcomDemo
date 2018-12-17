@@ -23,9 +23,34 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/font-awesome.min.css",
+              "src/css/lightbox.css",
+              "src/css/slider.min.css",
+              "src/css/tooltip.min.css",
+              "src/css/sticky.min.css",
+              "src/css/accordion.min.css",
+              "src/css/ionicons.min.css",
+              "src/css/reset.css",
+              "src/css/uikit.min.css",
+              "src/css/bootstrap.min.css",
+              "src/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/js/modernizr-custom.js",
+              "src/js/jquery-2.2.4.min.js",
+              "src/js/bootstrap.min.js",
+              "src/js/uikit.min.js",
+              "src/js/custom.js",
+              "src/js/slider.min.js",
+              "src/js/tooltip.min.js",
+              "src/js/parallax.min.js",
+              "src/js/sticky.min.js",
+              "src/js/accordion.min.js",
+              "src/js/lightbox-plus-jquery.min.js",
+              "src/js/lightbox.min.js",
+              "src/js/contact.js"
+            ]
           },
           "configurations": {
             "production": {

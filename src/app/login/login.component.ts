@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
         (responce: any) => {
           this.statusCode = responce.status_code;
           this.responceMessage = responce.message;
+          console.log('login responce');
           if (responce.status_code == 200) {
               // this.loginService.setAuthUser(responce.data);
               this.router.navigate(['/home']);

@@ -16,7 +16,7 @@
 
           <div class="home-img">
 
-            <img src="/src/img/showcase/screen-tilted-double-03.png" alt="" />
+            <img src="assets/img/showcase/screen-tilted-double-03.png" alt="" />
 
           </div>
 
@@ -111,7 +111,7 @@
     <!-- End Mobile Navigation Button -->
 
     <!-- Navigation Logo -->
-    <a routerLink="/" class="navbar-brand" data-uk-smooth-scroll="{offset: 120}"><img src="/src/img/Hai_logo_dark.png" alt="" /></a>
+    <a routerLink="/" class="navbar-brand" data-uk-smooth-scroll="{offset: 120}"><img src="assets/img/Hai_logo_dark.png" alt="" /></a>
     <!-- End Navigation Logo -->
 
   </div>
@@ -137,7 +137,7 @@
 
       <li routerLinkActive="active"><a routerLink="/cart" data-uk-smooth-scroll="{offset: 200}">cart {{ (authUser != null) ? '('+authUser.cart_count+')' : ''}}</a></li>
 
-      <!--<li><a href="#team" data-uk-smooth-scroll="{offset: 50}">Team</a></li>-->
+      <li routerLinkActive="active" *ngIf="!isAuthUser"><a routerLink="/register" data-uk-smooth-scroll="{offset: 50}">Register</a></li>
 
       <!--<li><a href="#faq" data-uk-smooth-scroll="{offset: 40}">FAQ</a></li>-->
 

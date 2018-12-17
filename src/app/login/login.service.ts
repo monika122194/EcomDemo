@@ -21,7 +21,7 @@ export class LoginService {
 
   loginDataSubmit(email: string, password: string) {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    this.httpClient.post('http://127.0.0.1/ecommerce/public/api/login',
+    this.httpClient.post('http://ecommerce.archintech.xyz/public/api/login',
         {
           'email': email,
           'password': password
@@ -31,7 +31,7 @@ export class LoginService {
         }
     ).subscribe(
         (responce: ResponceModel) => {
-          console.log(responce);
+          console.log('login',responce);
           this.loginResponce = responce;
           this.setLoginData(responce);
           this.authUser = responce.data.user_detail[0];
@@ -45,7 +45,7 @@ export class LoginService {
 
   logout() {
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'token': this.authToken});
-    this.httpClient.post('http://127.0.0.1/ecommerce/public/api/logout',
+    this.httpClient.post('http://ecommerce.archintech.xyz/public/api/logout',
         {},
         {
           headers: headers
@@ -60,12 +60,12 @@ export class LoginService {
     );
   }
 
-    destroyAuthUser() {
-        this.authUser = null;
-        this.isAuthUser = false;
-        this.authToken = null;
-        this.authUserChange.next(this.isAuthUser);
-    }
+  destroyAuthUser() {
+      this.authUser = null;
+      this.isAuthUser = false;
+      this.authToken = null;
+      this.authUserChange.next(this.isAuthUser);
+  }
 
   setLoginData(loginResponce: ResponceModel) {
     this.loginResponceChange.next(loginResponce);
@@ -98,7 +98,7 @@ export class LoginService {
 
   getAuthUserProfile() {
       const headers = new HttpHeaders({'Content-Type': 'application/json', 'token': this.getAuthToken()});
-      this.httpClient.post('http://127.0.0.1/ecommerce/public/api/get_profile',
+      this.httpClient.post('http://ecommerce.archintech.xyz/public/api/get_profile',
           {},
           {
               headers: headers

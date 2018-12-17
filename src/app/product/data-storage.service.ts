@@ -20,7 +20,7 @@ export class DataStorageService {
 
         if (categoryCode !== '' || categoryCode !== null) {
             const headers = new HttpHeaders({'Content-Type': 'application/json'});
-            this.httpClient.post('http://127.0.0.1/ecommerce/public/api/get_category_list',
+            this.httpClient.post('http://ecommerce.archintech.xyz/public/api/get_category_list',
                 {
                     'category_code': categoryCode
                 },
@@ -44,7 +44,7 @@ export class DataStorageService {
 
     getProductDetail(itemCode: string) {
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        this.httpClient.post('http://127.0.0.1/ecommerce/public/api/get_product_detail',
+        this.httpClient.post('http://ecommerce.archintech.xyz/public/api/get_product_detail',
             {
                 'item_code': itemCode
             },

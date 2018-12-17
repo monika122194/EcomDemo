@@ -16,7 +16,8 @@ export class CategoryService {
 
     getParentCatList() {
       const headers = new HttpHeaders({'Content-Type': 'application/json'});
-      this.httpClient.post('http://127.0.0.1/ecommerce/public/api/get_parent_category',
+      // this.httpClient.post('http://127.0.0.1/ecommerce/public/api/get_parent_category',
+        this.httpClient.post('http://ecommerce.archintech.xyz/public/api/get_parent_category',
           {},
           {
         headers: headers

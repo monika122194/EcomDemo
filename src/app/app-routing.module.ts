@@ -9,6 +9,7 @@ import {ProductDetailComponent} from './product/product-detail/product-detail.co
 import {LoginComponent} from './login/login.component';
 import {LogoutComponent} from './logout/logout.component';
 import {CartComponent} from './cart/cart.component';
+import {RegisterComponent} from "./register/register.component";
 
 const appRoutes: Routes = [
     {path: '', component: HomeComponent, pathMatch: 'full'},
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'logout', component: LogoutComponent},
     {path: 'cart', component: CartComponent},
+    {path: 'register', component: RegisterComponent},
 ];
 
 @NgModule({

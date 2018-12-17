@@ -22,6 +22,7 @@ import {FormsModule} from '@angular/forms';
 import {LoginService} from './login/login.service';
 import { LogoutComponent } from './logout/logout.component';
 import {CartService} from './cart/cart.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {CartService} from './cart/cart.service';
     CartComponent,
     LoginComponent,
     LogoutComponent,
+    RegisterComponent,
   ],
   imports: [
     HttpClientModule,

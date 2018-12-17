@@ -20,7 +20,7 @@ export class CartService {
     getCartListRequest() {
         const authToken = this.loginService.getAuthToken();
         const headers = new HttpHeaders({'Content-Type': 'application/json', 'token': authToken});
-        this.httpClient.post('http://127.0.0.1/ecommerce/public/api/get_cart_list'
+        this.httpClient.post('http://ecommerce.archintech.xyz/public/api/get_cart_list'
             , {}
             , {headers: headers}
         ).subscribe(
@@ -33,7 +33,7 @@ export class CartService {
 
   addToCart(itemCode: string) {
       const headers = new HttpHeaders({'Content-Type': 'application/json', 'token': this.loginService.getAuthToken()});
-      this.httpClient.post('http://127.0.0.1/ecommerce/public/api/cart_action',
+      this.httpClient.post('http://ecommerce.archintech.xyz/public/api/cart_action',
           {
               'action_type': 1,
               'quantity': 1,
@@ -58,7 +58,7 @@ export class CartService {
 
   updateCart(itemCode: string, cartId: number, actionType: number, quantity: number) {
       const headers = new HttpHeaders({'Content-Type': 'application/json', 'token': this.loginService.getAuthToken()});
-      this.httpClient.post('http://127.0.0.1/ecommerce/public/api/cart_action',
+      this.httpClient.post('http://ecommerce.archintech.xyz/public/api/cart_action',
           {
               'action_type': actionType,
               'quantity': quantity,
